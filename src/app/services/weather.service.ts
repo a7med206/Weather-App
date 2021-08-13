@@ -23,27 +23,15 @@ export class WeatherService {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const returnValue = {
+          const coords = {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
           }
 
-          this.getWeather(returnValue).subscribe(res => this.weatherObject.next(res))
+          this.getWeather(coords).subscribe(res => this.weatherObject.next(res))
         })
     } else this.updateWeather();
   }
-
-  // getLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       this.lat.next(position.coords.latitude);
-  //       this.long.next(position.coords.latitude);
-  //       console.log(this.lat.value, this.long.value);
-  //       return this.getWeather();
-  //     });
-  //   }
-  // }
-
 
 
 }

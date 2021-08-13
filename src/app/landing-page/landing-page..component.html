@@ -1,2 +1,57 @@
 <div class="main">
+  <header class="mt-4 mb-5">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <h3 class="text-white">INSTAWEATHER</h3>
+        </div>
+        <div class="col-2">
+          <div class="row justify-content-center">
+            <div class="col-4 px-0">
+              <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font font-bold-700 no-border temp-btn-border-right"
+                      (click)="convertTemperature()" [ngClass]="{'bg-faded-white': isCelsius}">
+                C
+              </button>
+            </div>
+            <div class="col-4 px-0">
+              <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font font-bold-700 no-border" (click)="convertTemperature()"
+                      [ngClass]="{'bg-faded-white': !isCelsius}">
+                F
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <section class="first-section pt-5">
+    <div class="container">
+      <div class="row justify-conteny-between">
+        <div class="col-4">
+          <h1 class="text-white font-bold-700">
+            {{city}}
+          </h1>
+          <p class="date text-white font-bold-700">
+            {{today | date:"EEEE dd, YYYY"}}
+          </p>
+          <img [src]="weatherObject.currently.icon" alt="">
+          <h5 class="text-white font-bold-700">
+            {{weatherObject.currently.summary}}
+          </h5>
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
 </div>

@@ -6,3 +6,30 @@
   background: url(../../assets/images/bg.png) no-repeat center center fixed;
   background-size: 100vw 100vh;
 }
+
+.bg-faded-white {
+  background-color: #ffffff3b !important;
+}
+
+.temp-btn-padding {
+padding: 5px 0;
+}
+
+
+.no-border {
+  border: 0px;
+}
+
+
+.temp-btn-border-right {
+  border-right: 2px solid white;
+}
+
+.temp-btn-font {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.font-bold-700 {
+  font-weight: 700;
+}
