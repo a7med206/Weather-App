@@ -11,14 +11,17 @@ export class WeatherService {
 
 
   getWeather() {
-    this.path = `https://api.darksky.net/forecast/[: a177f8481c31fa96c3f95ad4f4f84610]/${this.latitude},${this.longitude}`;
-    return this.http.get(this.path)
+    if (this.latitude && this.longitude) {
+      this.path = `https://api.darksky.net/forecast/[: a177f8481c31fa96c3f95ad4f4f84610]/${this.latitude},${this.longitude}`;
+      return this.http.get(this.path).toPromise();
+    } return null;
   }
 
   getLocation() {
+    navigator.geolocation
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
-      return this.getWeather().toPromise();
+      return this.getWeather();
     }
     return "No weather data available"
   }
