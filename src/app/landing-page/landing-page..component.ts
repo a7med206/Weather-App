@@ -10,7 +10,9 @@ export class LandingPageComponent implements OnInit {
   constructor(private weatherApi: WeatherService) { }
 
   ngOnInit(): void {
-    const weatherObject = this.weatherApi.getLocation();
-    console.log('weatherObject', weatherObject);
+    this.weatherApi.updateWeather();
+    this.weatherApi.weatherObject.subscribe((res) => {
+      console.log('weatherObject', res);
+    })
   }
 }
