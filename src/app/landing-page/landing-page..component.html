@@ -41,7 +41,7 @@
             </h5>
             <!-- <img class="current-icon" src="../../assets/images/current-icon.svg" alt=""> -->
             <!-- for guthub build issue -->
-            <img class="current-icon" src="./assets/images/current-icon.svg" alt="">
+            <img class="current-icon" src="docs/assets/images/current-icon.svg" alt="">
             <h2 class="text-white  mt-3 ml-1" *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.summary">
               <b> {{weatherObject.currently.summary}} </b>
             </h2>
@@ -97,7 +97,7 @@
                   <!-- <img [src]="hourData.icon.includes('clear-day') ?  '../../assets/images/clear-day.svg' : '../../assets/images/weather-instance-cloudy.svg' "
                        alt=""> -->
                   <!-- for guthub build issue -->
-                  <img [src]="hourData.icon.includes('clear-day') ?  './assets/images/clear-day.svg' : './assets/images/weather-instance-cloudy.svg' "
+                  <img [src]="hourData.icon.includes('clear-day') ?  'docs/assets/images/clear-day.svg' : 'docs/assets/images/weather-instance-cloudy.svg' "
                        alt="">
                 </div>
                 <p class="instant-temperature text-white">
@@ -117,7 +117,7 @@
                   <!-- <img [src]="hourData.icon.includes('clear') ?  '../../assets/images/clear-day.svg' : '../../assets/images/weather-instance-cloudy.svg' " -->
                   alt="">
                   <!-- for guthub build issue -->
-                  <img [src]="hourData.icon.includes('clear') ?  './assets/images/clear-day.svg' : './assets/images/weather-instance-cloudy.svg' "
+                  <img [src]="hourData.icon.includes('clear') ?  'docs/assets/images/clear-day.svg' : 'docs/assets/images/weather-instance-cloudy.svg' "
                        alt="">
                 </div>
                 <p class="instant-temperature text-white">
