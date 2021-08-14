@@ -21,7 +21,6 @@ export class WeatherService {
 
 
   async updateWeather() {
-    console.log('update')
     if (navigator.geolocation) {
       // works only if location allowed
       navigator.geolocation.getCurrentPosition(
@@ -30,10 +29,10 @@ export class WeatherService {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
           }
+          // call the weather api then pass the response to the weatherObject of type behavior subject
           this.getWeather(coords).subscribe(res => this.weatherObject.next(res));
         })
     }
-
   }
 
 
