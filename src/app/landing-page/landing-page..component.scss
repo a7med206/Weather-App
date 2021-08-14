@@ -57,13 +57,9 @@ padding: 5px 0;
  }
 
  .second-sec-height {
-   height: 185px;
+   height: 175px;
  }
 
- .max-width-100 {
-   max-width: 100%;
-   overflow-x: scroll;
- }
 
  .col-1-from-9 {
    flex: 0 0 11.11%;
@@ -78,9 +74,16 @@ padding: 5px 0;
  .second-sec-nowrap {
   flex-wrap: nowrap;
   overflow-x: scroll;
-  height: inherit;
- }
+  height: 162px;
+}
 
+ .icon {
+   img {
+     width: 50px;
+     height: 50px;
+     margin-bottom: 20px;
+   }
+ }
 
  .second-sec-nowrap::-webkit-scrollbar{
   width: 0px;
@@ -99,3 +102,5 @@ padding: 5px 0;
   border-radius: 0px;
   box-shadow: inset 0px 0px 0px 0px #F0F0F0;
   }
+
+

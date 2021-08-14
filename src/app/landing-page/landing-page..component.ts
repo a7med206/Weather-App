@@ -58,7 +58,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   getDate(time: string) {
-    return moment(time, 'X').format("DD-MM");
+    return moment(time, 'X').format("ddd");
 
   }
 }
