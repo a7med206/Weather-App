@@ -27,9 +27,75 @@ padding: 5px 0;
 
 .temp-btn-font {
   font-size: 18px;
-  font-weight: 500;
 }
 
 .font-bold-700 {
   font-weight: 700;
 }
+
+.current-temperature {
+  font-size: 144px;
+}
+
+.flex-flow-colum {
+  flex-flow: column;
+}
+
+.border-bottom {
+  border-bottom: 1px solid white;
+}
+
+.border-p-7 {
+  padding-bottom: 7px;
+}
+.btn-border-highlight {
+  border-bottom: 2px solid white;
+}
+
+ .text-white-faded {
+   color: #ffffffad !important;
+ }
+
+ .second-sec-height {
+   height: 185px;
+ }
+
+ .max-width-100 {
+   max-width: 100%;
+   overflow-x: scroll;
+ }
+
+ .col-1-from-9 {
+   flex: 0 0 11.11%;
+   max-width: 11%;
+ }
+
+ .col-1-from-8 {
+   flex: 0 0 12.5%;
+   max-width: 12.5%;
+ }
+
+ .second-sec-nowrap {
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  height: inherit;
+ }
+
+
+ .second-sec-nowrap::-webkit-scrollbar{
+  width: 0px;
+  height: 8px;
+  }
+  .second-sec-nowrap::-webkit-scrollbar-thumb{
+  background: #FFFFFF;
+  border: 0.7px solid ;
+  border-radius: 6px;
+  }
+  .second-sec-nowrap::-webkit-scrollbar-thumb:hover{
+  background: #FFFFFF;
+  }
+  .second-sec-nowrap::-webkit-scrollbar-track{
+    background: #fff0;
+  border-radius: 0px;
+  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+  }
