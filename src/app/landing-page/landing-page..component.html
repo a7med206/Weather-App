@@ -41,7 +41,7 @@
             </h5>
             <!-- <img class="current-icon" src="../../assets/images/current-icon.svg" alt=""> -->
             <!-- for guthub build issue -->
-            <img class="current-icon" src="/assets/images/current-icon.svg" alt="">
+            <img class="current-icon" src="./assets/images/current-icon.svg" alt="">
             <h2 class="text-white  mt-3 ml-1" *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.summary">
               <b> {{weatherObject.currently.summary}} </b>
             </h2>
@@ -97,8 +97,8 @@
                   <!-- <img [src]="hourData.icon.includes('clear-day') ?  '../../assets/images/clear-day.svg' : '../../assets/images/weather-instance-cloudy.svg' "
                        alt=""> -->
                   <!-- for guthub build issue -->
-                  <img [src]="hourData.icon.includes('clear-day') ?  '/assets/images/clear-day.svg' : '/assets/images/weather-instance-cloudy.svg' "
-                       alt="">
+                  <img *ngIf="hourData.icon.includes('clear-day')" src="./assets/images/clear-day.svg">
+                  <img *ngIf="!hourData.icon.includes('clear-day')" src="./assets/images/weather-instance-cloudy.svg">
                 </div>
                 <p class="instant-temperature text-white">
                   {{temperatureFormatter(hourData.temperature)}}
@@ -115,10 +115,10 @@
                 </p>
                 <div class="icon">
                   <!-- <img [src]="hourData.icon.includes('clear') ?  '../../assets/images/clear-day.svg' : '../../assets/images/weather-instance-cloudy.svg' " -->
-                  alt="">
+                  <!-- alt=""> -->
                   <!-- for guthub build issue -->
-                  <img [src]="hourData.icon.includes('clear') ?  '/assets/images/clear-day.svg' : '/assets/images/weather-instance-cloudy.svg' "
-                       alt="">
+                  <img *ngIf="hourData.icon.includes('clear')" src="./assets/images/clear-day.svg">
+                  <img *ngIf="!hourData.icon.includes('clear')" src="./assets/images/weather-instance-cloudy.svg">
                 </div>
                 <p class="instant-temperature text-white">
                   {{temperatureFormatter(hourData.temperatureHigh)}} / {{temperatureFormatter(hourData.temperatureLow)}}
