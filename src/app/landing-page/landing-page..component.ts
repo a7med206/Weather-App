@@ -24,7 +24,11 @@ export class LandingPageComponent implements OnInit {
       this.isRequestAccepted = true;
       if (res) {
         this.weatherObject = res;
-        this.city = this.weatherObject.timezone.split('/')[1];
+        this.weatherApi.city.subscribe(r => {
+          if (r) this.city = r;
+          else this.city = this.weatherObject.timezone.split('/')[1];
+        })
+
         this.today = moment(this.weatherObject.currently.time, 'X').format('dddd DD, YYYY');
       } else {
         this.weatherObject = null;
