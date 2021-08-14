@@ -19,6 +19,7 @@ export class WeatherService {
 
 
   updateWeather() {
+    console.log('update');
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
