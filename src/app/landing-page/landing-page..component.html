@@ -71,7 +71,7 @@
   </section>
 
 
-  <section class="second-section">
+  <section class="second-section" *ngIf="isRequestAccepted && weatherObject !== null">
     <div class="container">
       <div class="row">
         <div class="col-12 border-bottom pt-1 pb-0">
@@ -98,7 +98,7 @@
                        alt=""> -->
                   <!-- for guthub build issue -->
                   <img *ngIf="hourData.icon.includes('clear-day')" src="./assets/images/clear-day.svg">
-                  <img *ngIf="!hourData.icon.includes('clear-day')" src="./assets/images/weather-instance-cloudy.svg">
+                  <img *ngIf="!hourData.icon.includes('clear-day')" src="./assets/images/current-icon.svg">
                 </div>
                 <p class="instant-temperature text-white">
                   {{temperatureFormatter(hourData.temperature)}}
@@ -118,7 +118,7 @@
                   <!-- alt=""> -->
                   <!-- for guthub build issue -->
                   <img *ngIf="hourData.icon.includes('clear')" src="./assets/images/clear-day.svg">
-                  <img *ngIf="!hourData.icon.includes('clear')" src="./assets/images/weather-instance-cloudy.svg">
+                  <img *ngIf="!hourData.icon.includes('clear')" src="./assets/images/current-icon.svg">
                 </div>
                 <p class="instant-temperature text-white">
                   {{temperatureFormatter(hourData.temperatureHigh)}} / {{temperatureFormatter(hourData.temperatureLow)}}
@@ -131,6 +131,17 @@
     </div>
   </section>
 
+  <section class="no-data" *ngIf="isRequestAccepted && weatherObject === null ">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h3 class="text-white text-center">
+            <b>No Weather Data Available.<br /> Please Allow Location Access or Re-open Your Browser</b>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 

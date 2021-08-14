@@ -8,29 +8,35 @@ import * as moment from 'moment';
   styleUrls: ['./landing-page..component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  weatherObject: any;
+  weatherObject: any = {};
   city: string = '';
   isCelsius: boolean = false;
   isHourly: boolean = true;
+  isRequestAccepted: boolean = false;
   today: string = moment(new Date()).format('dddd DD, YYYY');
   constructor(private weatherApi: WeatherService) { }
 
   ngOnInit(): void {
     this.weatherApi.updateWeather();
     this.weatherApi.weatherObject.subscribe((res) => {
+      this.isRequestAccepted = true;
       if (res) {
         this.weatherObject = res;
         console.log(this.weatherObject);
-        if (this.weatherObject.timezone) {
-          this.city = this.weatherObject.timezone.split('/')[1];
-          this.today = moment(this.weatherObject.currently.time, 'X').format('dddd DD, YYYY');
-        }
+        this.city = this.weatherObject.timezone.split('/')[1];
+        this.today = moment(this.weatherObject.currently.time, 'X').format('dddd DD, YYYY');
+      } else {
+        this.weatherObject = null;
       }
-    })
+      console.log(this.isRequestAccepted);
 
+    });
 
 
   }
+
+
+
 
   convertTemperature(type: string) {
     if (type === 'f') this.isCelsius = false;

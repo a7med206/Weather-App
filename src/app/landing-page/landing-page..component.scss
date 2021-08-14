@@ -144,6 +144,16 @@
   margin-bottom: 0px;
 }
 
+
+.no-data {
+  .row {
+    height: 70vh;
+    align-items: center;
+  }
+}
+
+
+
 @media (min-width: 1200px) {
   .main {
     .container {
