@@ -1,22 +1,22 @@
 <div class="main">
-  <header class="mt-4 mb-5">
+  <header class="mt-4 mb-4">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-4">
-          <h3 class="text-white">INSTAWEATHER</h3>
+          <h3 class="text-white"><b>INSTAWEATHER </b></h3>
         </div>
         <div class="col-2">
           <div class="row justify-content-center">
             <div class="col-4 px-0">
-              <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font font-bold-700 no-border temp-btn-border-right"
+              <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font  no-border temp-btn-border-right"
                       (click)="convertTemperature('c')" [ngClass]="{'bg-faded-white': isCelsius}">
-                C
+                <b> C</b>
               </button>
             </div>
             <div class="col-4 px-0">
-              <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font font-bold-700 no-border" (click)="convertTemperature('f')"
+              <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font  no-border" (click)="convertTemperature('f')"
                       [ngClass]="{'bg-faded-white': !isCelsius}">
-                F
+                <b> F</b>
               </button>
             </div>
           </div>
@@ -28,34 +28,36 @@
 
 
 
-  <section class="first-section pt-5" *ngIf="weatherObject">
+  <section class="first-section first-section-padding mt-5 first-section-margin" *ngIf="weatherObject">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-4">
-          <h1 class="text-white font-bold-700">
-            {{city}}
-          </h1>
-          <p class="date text-white font-bold-700">
-            {{today}}
-          </p>
-          <img src="../../assets/images/current-icon.svg" alt="">
-          <h5 class="text-white font-bold-700" *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.summary">
-            {{weatherObject.currently.summary}}
-          </h5>
-        </div>
-        <div class="col-4">
-          <div class="row justify-content-end">
-            <h1 class="current-temperature text-white font-bold-700"
-                *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.temperature">
-              {{temperatureFormatter(weatherObject.currently.temperature)}}
+        <div class="col-lg-4 col-md-5 col-sm-6 col-6 ">
+          <div class="current-city">
+            <h1 class="text-white  city-font-64">
+              <b> {{city}} </b>
             </h1>
-            <div class="col-12">
-              <div class="row justify-content-end flex-flow-colum align-items-end">
-                <h4 class="text-white font-bold-700 text-center" *ngIf="weatherObject && weatherObject.daily && weatherObject.daily.data">
+            <h5 class="date text-white  ml-1">
+              <b> {{today}} </b>
+            </h5>
+            <img class="current-icon" src="../../assets/images/current-icon.svg" alt="">
+            <h2 class="text-white  mt-3 ml-1" *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.summary">
+              <b> {{weatherObject.currently.summary}} </b>
+            </h2>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-6 col-6">
+          <div class="row justify-content-end current-temp">
+            <h1 class="col-lg-7 col-md-8 col-10 current-temperature text-white px-0"
+                *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.temperature">
+              <b> {{temperatureFormatter(weatherObject.currently.temperature)}} </b>
+            </h1>
+            <div class="col-lg-8 col-md-9 col-12">
+              <div class="row justify-content-end flex-flow-colum align-items-center">
+                <h4 class="text-white " *ngIf="weatherObject && weatherObject.daily && weatherObject.daily.data">
                   {{temperatureFormatter(weatherObject.daily.data[0].apparentTemperatureHigh)}} /
                   {{temperatureFormatter(weatherObject.daily.data[0].apparentTemperatureLow)}}
                 </h4>
-                <p class="text-white font-bold-700 text-center" *ngIf="weatherObject && weatherObject.daily && weatherObject.daily.data">
+                <p class="text-white  text-center" *ngIf="weatherObject && weatherObject.daily && weatherObject.daily.data">
                   {{weatherObject.daily.data[0].summary}}
                 </p>
               </div>
@@ -72,22 +74,22 @@
       <div class="row">
         <div class="col-12 border-bottom pt-1 pb-0">
           <div class="row justify-content-start">
-            <button class="col-1 text-white w-100 bg-transparent no-border font-bold-700 border-p-7 "
+            <button class="col-lg-1 col-md-2 col-sm-2 col-3 px-0  text-white hourly-daily-btn w-100 bg-transparent no-border  border-p-7 "
                     [ngClass]="{'btn-border-highlight':isHourly, 'text-white-faded': !isHourly}" (click)="hourlyOrDaily('hour')">
-              Hourly
+              <b>Hourly </b>
             </button>
-            <button class="col-1 text-white w-100 bg-transparent no-border font-bold-700 border-p-7 "
+            <button class="col-lg-1 col-md-2 col-sm-2 col-3 px-0  text-white hourly-daily-btn w-100 bg-transparent no-border  border-p-7 "
                     [ngClass]="{'btn-border-highlight':!isHourly, 'text-white-faded': isHourly}" (click)="hourlyOrDaily('day')">
-              Daily
+              <b> Daily </b>
             </button>
           </div>
         </div>
-        <div class="col-12  border-bottom pt-3 pb-0 second-sec-height">
+        <div class="col-12  border-bottom  second-sec-height  second-sec-padding">
           <div class="row second-sec-nowrap" *ngIf="weatherObject && weatherObject.hourly && weatherObject.hourly.data && isHourly">
-            <div class="col-1-from-9" *ngFor="let hourData of weatherObject.hourly.data">
+            <div class="col-1-from-9" *ngFor="let hourData of weatherObject.hourly.data.slice(0,24); let i =index">
               <div class="d-flex flex-flow-colum  justify-content-center align-items-center">
                 <p class="hour text-white">
-                  {{getTime(hourData.time)}}
+                  {{ (i === 0) ? 'Now' : getTime(hourData.time)}}
                 </p>
                 <div class="icon">
                   <img [src]="hourData.icon.includes('clear-day') ?  '../../assets/images/clear-day.svg' : '../../assets/images/weather-Instance-cloudy.svg' "
@@ -101,10 +103,10 @@
           </div>
 
           <div class="row second-sec-nowrap px-1" *ngIf="weatherObject && weatherObject.hourly && weatherObject.hourly.data && !isHourly">
-            <div class="col-1-from-8" *ngFor="let hourData of weatherObject.daily.data">
+            <div class="col-1-from-8" *ngFor="let hourData of weatherObject.daily.data; let x = index">
               <div class="d-flex flex-flow-colum  justify-content-center align-items-center">
                 <p class="hour text-white">
-                  {{getDate(hourData.time)}}
+                  {{ (x === 0) ? 'Today' : getDate(hourData.time)}}
                 </p>
                 <div class="icon">
                   <img [src]="hourData.icon.includes('clear') ?  '../../assets/images/clear-day.svg' : '../../assets/images/weather-Instance-cloudy.svg' "
