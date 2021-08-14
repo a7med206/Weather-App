@@ -7,13 +7,13 @@
         </div>
         <div class="col-2">
           <div class="row justify-content-center">
-            <div class="col-4 px-0">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-5 px-0">
               <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font  no-border temp-btn-border-right"
                       (click)="convertTemperature('c')" [ngClass]="{'bg-faded-white': isCelsius}">
                 <b> C</b>
               </button>
             </div>
-            <div class="col-4 px-0">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-5 px-0">
               <button class="text-white w-100 bg-transparent temp-btn-padding temp-btn-font  no-border" (click)="convertTemperature('f')"
                       [ngClass]="{'bg-faded-white': !isCelsius}">
                 <b> F</b>
@@ -47,7 +47,7 @@
         </div>
         <div class="col-lg-4 col-md-5 col-sm-6 col-6">
           <div class="row justify-content-end current-temp">
-            <h1 class="col-lg-7 col-md-8 col-10 current-temperature text-white px-0"
+            <h1 class="col-lg-6 col-md-8 col-10 current-temperature text-white px-0"
                 *ngIf="weatherObject && weatherObject.currently && weatherObject.currently.temperature">
               <b> {{temperatureFormatter(weatherObject.currently.temperature)}} </b>
             </h1>
