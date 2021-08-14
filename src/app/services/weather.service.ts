@@ -12,7 +12,8 @@ export class WeatherService {
 
 
   getWeather(coords: any) {
-    this.path = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/a177f8481c31fa96c3f95ad4f4f84610/${coords.latitude},${coords.longitude}`;
+    // this.path = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/a177f8481c31fa96c3f95ad4f4f84610/${coords.latitude},${coords.longitude}`;
+    this.path = `https://api.darksky.net/forecast/a177f8481c31fa96c3f95ad4f4f84610/${coords.latitude},${coords.longitude}`;
     return this.http.get(this.path);
 
   }
